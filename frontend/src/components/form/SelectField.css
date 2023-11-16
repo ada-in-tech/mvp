@@ -1,0 +1,35 @@
+.select-field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-field label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.select-field select {
+    padding: 0.8rem;
+    padding-right: 2.5rem;
+    /* Add more padding on the right to make space for the arrow */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23YOUR_HEX_COLOR" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 1rem center;
+    /* Adjust the right position as needed */
+    background-size: 1rem;
+    /* Adjust the size as needed */
+}
+
+.select-field select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
