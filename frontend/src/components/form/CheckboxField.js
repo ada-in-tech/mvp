@@ -1,5 +1,5 @@
 import React from 'react';
-import './CheckboxField.css';
+import '../../styles/components.css';
 
 const CheckboxField = ({ label, name, checked, onChange }) => {
     return (

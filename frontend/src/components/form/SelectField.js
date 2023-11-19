@@ -1,5 +1,5 @@
 import React from 'react';
-import './SelectField.css';
+import '../../styles/components.css';
 
 const SelectField = ({ label, name, value, onChange, options }) => {
     return (
