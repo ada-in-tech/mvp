@@ -387,4 +387,190 @@ export const campaigns = [
     { id: 4, title: 'Youth Tech Leaders', description: 'Fostering tech leadership among the youth.', targetDate: '2023-11-05' },
     { id: 5, title: 'Diversity in AI', description: 'Encouraging diversity in AI development teams.', targetDate: '2023-12-10' },
     { id: 6, title: 'Tech Accessibility', description: 'Making technology accessible to people with disabilities.', targetDate: '2024-01-18' }
-];  
+];
+export const newcomers = [
+    {
+        id: 1,
+        name: 'Emily Chen',
+        skills: ['HTML', 'CSS', 'Basic JavaScript'],
+        interests: 'Web Development',
+        bio: 'Aspiring web developer, passionate about creating responsive and user-friendly websites.'
+    },
+    {
+        id: 2,
+        name: 'Luisa Gomez',
+        skills: ['Python', 'Data Analysis'],
+        interests: 'Data Science',
+        bio: 'Interested in data science and looking to expand my skills in machine learning.'
+    },
+    {
+        id: 3,
+        name: 'Aarav Singh',
+        skills: ['Java', 'C++', 'Problem Solving'],
+        interests: 'Software Development',
+        bio: 'Enthusiastic about building efficient and scalable software solutions.'
+    },
+    {
+        id: 4,
+        name: 'Nadia Ali',
+        skills: ['Python', 'Beginner AI Concepts'],
+        interests: 'Artificial Intelligence',
+        bio: 'Curious about AI and its applications in daily life, looking for mentorship in this field.'
+    },
+    {
+        id: 5,
+        name: 'Leo Zhang',
+        skills: ['UI/UX Design', 'Adobe Suite'],
+        interests: 'Design',
+        bio: 'Passionate about designing intuitive user interfaces and improving user experiences.'
+    },
+    {
+        id: 6,
+        name: 'Sophia Johnson',
+        skills: ['Cloud Computing Basics', 'AWS'],
+        interests: 'Cloud Technologies',
+        bio: 'Eager to explore cloud technologies and learn more about cloud architecture.'
+    }
+];
+
+export const collaborations1 = [
+    {
+        id: 1,
+        partner: 'Tech Corp',
+        type: 'Workshop Sponsorship',
+        status: 'Ongoing',
+        description: 'Partnering for an online tech workshop series.'
+    },
+    {
+        id: 2,
+        partner: 'Innovatech',
+        type: 'Research Project',
+        status: 'Completed',
+        description: 'Joint research on AI-driven analytics tools.'
+    },
+    {
+        id: 3,
+        partner: 'DesignPro',
+        type: 'Design Hackathon',
+        status: 'Upcoming',
+        description: 'Collaboration for a design-focused hackathon event.'
+    },
+    // ...add more collaboration data as needed
+];
+
+export const resources1 = [
+    {
+        id: 1,
+        title: 'Introduction to Web Development',
+        description: 'A comprehensive guide covering the basics of HTML, CSS, and JavaScript.',
+        link: '/resources/web-dev-basics'
+    },
+    {
+        id: 2,
+        title: 'Data Science for Beginners',
+        description: 'An introductory resource for understanding the fundamentals of data science and machine learning.',
+        link: '/resources/data-science-beginners'
+    },
+    {
+        id: 3,
+        title: 'UI/UX Design Principles',
+        description: 'A resource that explores key concepts in user interface and user experience design.',
+        link: '/resources/uiux-design-principles'
+    },
+    {
+        id: 4,
+        title: 'Python Programming Essentials',
+        description: 'A beginner-friendly resource to learn Python programming for various applications.',
+        link: '/resources/python-programming'
+    },
+    {
+        id: 5,
+        title: 'Cloud Computing Overview',
+        description: 'An overview of cloud computing, including fundamental concepts and major cloud service providers.',
+        link: '/resources/cloud-computing'
+    },
+    {
+        id: 6,
+        title: 'Cybersecurity Basics',
+        description: 'A resource providing foundational knowledge on cybersecurity threats and best practices.',
+        link: '/resources/cybersecurity-basics'
+    }
+];
+
+export const communityGroups = [
+    {
+        id: 1,
+        name: 'Women in Tech Alliance',
+        description: 'A global network supporting women in technology through networking, mentorship, and career development.',
+        link: '/community-groups/wit-alliance'
+    },
+    {
+        id: 2,
+        name: 'Code for Equality',
+        description: 'An initiative focused on bridging the gender gap in tech through workshops and advocacy.',
+        link: '/community-groups/code-for-equality'
+    },
+    {
+        id: 3,
+        name: 'Diversity in AI',
+        description: 'A community promoting diversity and inclusion in the field of artificial intelligence.',
+        link: '/community-groups/diversity-in-ai'
+    },
+    {
+        id: 4,
+        name: 'NextGen Tech Women',
+        description: 'A platform for young women in tech to connect, learn, and grow together.',
+        link: '/community-groups/nextgen-tech-women'
+    },
+    {
+        id: 5,
+        name: 'Tech Mamas',
+        description: 'Supporting mothers in technology fields with resources, networking, and mentorship.',
+        link: '/community-groups/tech-mamas'
+    },
+    {
+        id: 6,
+        name: 'InnovateHer',
+        description: 'Empowering female tech entrepreneurs through workshops, funding, and community support.',
+        link: '/community-groups/innovateher'
+    }
+];
+
+export const companies = [
+    {
+        id: 1,
+        name: 'TechVision',
+        description: 'An innovative software company specializing in AI and machine learning solutions.',
+        link: '/companies/techvision'
+    },
+    {
+        id: 2,
+        name: 'CloudScape',
+        description: 'A leading cloud services provider offering scalable solutions for businesses.',
+        link: '/companies/cloudscape'
+    },
+    {
+        id: 3,
+        name: 'DataWise',
+        description: 'Data analytics firm focused on transforming business data into actionable insights.',
+        link: '/companies/datawise'
+    },
+    {
+        id: 4,
+        name: 'GreenCode',
+        description: 'Sustainable software development company with a focus on environmental impact.',
+        link: '/companies/greencode'
+    },
+    {
+        id: 5,
+        name: 'SecureNet',
+        description: 'Cybersecurity experts providing cutting-edge protection for digital assets.',
+        link: '/companies/securenet'
+    },
+    {
+        id: 6,
+        name: 'InnoTech',
+        description: 'A tech startup known for its innovative approach to consumer technology.',
+        link: '/companies/innotech'
+    }
+];

@@ -8,37 +8,28 @@ const Footer = () => {
                 {/* About Section */}
                 <div>
                     <h5 className="font-bold mb-2">About Ada in Tech</h5>
-                    <p>Dedicated to empowering women in technology fields.</p>
+                    <p>Ada in Tech is committed to fostering an inclusive environment where women in technology can thrive, innovate, and lead. We offer resources, training, and a supportive community to help bridge the gender gap in tech.</p>
                 </div>
 
                 {/* Quick Links */}
                 <div>
                     <h5 className="font-bold mb-2">Quick Links</h5>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/features">Features</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/profile">Profile</a></li> {/* Link to Profile page */}
-                        <li><a href="/settings">Settings</a></li> {/* Link to Settings page */}
-                        <li><a href="/campaign-creation">Campaign Creation</a></li> {/* Link to Campaign Creation page */}
-                        <li><a href="/content-moderation">Content Moderation</a></li> {/* Link to Content Moderation page */}
-                        <li><a href="/reports-feedback">Reports and Feedback</a></li> {/* Link to Reports and Feedback page */}
-                        {/* Add more links as needed */}
+                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/workshops">Workshops</a></li>
+                        <li><a href="/mentorship">Mentorship</a></li>
+                        <li><a href="/events">Events</a></li>
                     </ul>
                 </div>
 
-                {/* Quick Links */}
+                {/* Pages */}
                 <div>
                     <h5 className="font-bold mb-2">Pages</h5>
                     <ul>
-                        <li><a href="/courses">Courses</a></li> {/* Link to Courses page */}
-                        <li><a href="/workshops">Workshops</a></li> {/* Link to Workshops page */}
-                        <li><a href='/courses/101'>DetailedCoursePage</a></li>
-                        <li><a href='/workshops/201'>DetailedWorkshopPage</a></li>
-                        <li><a href="/job-listings">Job Listings</a></li> {/* Link to Job Listings page */}
-                        <li><a href="/feedback">Feedback</a></li> {/* Link to Feedback page */}
-                        <li><a href="/report-incident">Report Incident</a></li> {/* Link to Report Incident page */}
-                        {/* Add more links as needed */}
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Use</a></li>
                     </ul>
                 </div>
 
@@ -46,17 +37,18 @@ const Footer = () => {
                 <div>
                     <h5 className="font-bold mb-2">Contact Us</h5>
                     <p>Email: info@adaintech.com</p>
-                    {/* Add more contact info if needed */}
+                    <p>Phone: +123 456 7890</p>
+                    <p>Address: 123 Tech Lane, Innovation City</p>
                 </div>
 
                 {/* Social Media Links */}
                 <div>
                     <h5 className="font-bold mb-2">Follow Us</h5>
                     <ul>
-                        <li><a href="https://www.linkedin.com">LinkedIn</a></li>
-                        <li><a href="https://www.linkedin.com">Twitter</a></li>
-                        <li><a href="https://www.linkedin.com">Facebook</a></li>
-                        {/* Add more social media links */}
+                        <li><a href="https://www.facebook.com/AdaInTech">Facebook</a></li>
+                        <li><a href="https://www.twitter.com/AdaInTech">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/AdaInTech">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/AdaInTech">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>

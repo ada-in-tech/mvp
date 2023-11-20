@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import InputField from '../components/form/InputField';
 import SelectField from '../components/form/SelectField';
 import Button from '../components/common/Button';
@@ -20,14 +21,18 @@ const SignUpPage = () => {
         { label: 'Community/Advocacy Group', value: 'community' },
     ];
 
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // Add logic to handle form submission
+        navigate('/verify-email'); // Redirect to email verification page
     };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
 
     return (
         <div className="auth-container">
@@ -68,6 +73,9 @@ const SignUpPage = () => {
                     options={userRoles}
                 />
                 <Button type="submit">Register</Button>
+                <p>
+                    Already have an account? <Link to="/login" style={{ color: '#0077b6' }}>Login</Link> {/* Adjust the color as needed */}
+                </p>
             </form>
         </div>
     );

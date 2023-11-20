@@ -18,7 +18,7 @@ const ProfessionalDashboard = () => {
 
             {/* Potential Mentees Section */}
             <section className="my-6">
-                <h2 className="text-2xl font-semibold mb-4">Potential Mentees</h2>
+                <h2 className="text-2xl font-semibold mb-4">Mentor Connections</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {potentialMentees.map(mentee => (
                         <Card key={mentee.id} item={mentee} className="mentor-card" />

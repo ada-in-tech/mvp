@@ -25,6 +25,16 @@ import ReportIncidentPage from './pages/ReportIncidentPage';
 import ContentModerationPage from './pages/ContentModerationPage';
 import ReportsFeedbackPage from './pages/ReportsFeedbackPage';
 import CampaignCreationPage from './pages/CampaignCreationPage';
+import CourseCreationPage from './pages/CourseCreationPage';
+import JobPostingPage from './pages/JobPostingPage';
+import ResourceCreationPage from './pages/ResourceCreationPage';
+import MentorPage from './pages/MentorPage';
+import NewcomerPage from './pages/NewcomerPage';
+import CompanyPage from './pages/CompanyPage';
+import CommunityPage from './pages/CommunityPage';
+import CollaborationPage from './pages/CollaborationPage';
+import ResourcePage from './pages/ResourcePage';
+
 import './App.css';
 
 function App() {
@@ -57,6 +67,15 @@ function App() {
               <Route path="/content-moderation" element={<ContentModerationPage />} />
               <Route path="/reports-feedback" element={<ReportsFeedbackPage />} />
               <Route path="/campaign-creation" element={<CampaignCreationPage />} />
+              <Route path="/course-creation" element={<CourseCreationPage />} />
+              <Route path="/job-posting" element={<JobPostingPage />} />
+              <Route path="/resource-creation" element={<ResourceCreationPage />} />
+              <Route path="/mentor" element={<MentorPage />} />
+              <Route path="/newcomer" element={<NewcomerPage />} />
+              <Route path="/company" element={<CompanyPage />} />
+              <Route path="/community" element={<CommunityPage />} />
+              <Route path="/collaboration" element={<CollaborationPage />} />
+              <Route path="/resources" element={<ResourcePage />} />
             </Routes>
           </main>
 

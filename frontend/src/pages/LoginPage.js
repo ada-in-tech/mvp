@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import InputField from '../components/form/InputField';
 import Button from '../components/common/Button';
 import '../styles/auth.css';
@@ -36,6 +37,9 @@ const LoginPage = () => {
                     onChange={handleChange}
                 />
                 <Button type="submit">Login</Button>
+                <p>
+                    Don't have an account? <Link to="/signup" style={{ color: '#0077b6' }}>Sign Up</Link> {/* Adjust the color as needed */}
+                </p>
             </form>
         </div>
     );
