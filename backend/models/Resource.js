@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const resourceSchema = new mongoose.Schema({
-    title: { type: String, required: true, index: true },
+    title: { type: String, required: true },
     type: { type: String, enum: ['article', 'video', 'tutorial', 'ebook', 'other'], default: 'article' },
     link: String,
     description: String,
@@ -12,5 +12,4 @@ const resourceSchema = new mongoose.Schema({
     // Additional fields as needed
 });
 
-resourceSchema.index({ title: 1 });
 module.exports = mongoose.model('Resource', resourceSchema);

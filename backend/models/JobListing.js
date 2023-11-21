@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const jobListingSchema = new mongoose.Schema({
-    title: { type: String, required: true, index: true },
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: true, index: true },
+    title: { type: String, required: true, },
+    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: true, },
     description: { type: String, required: true },
     requirements: [String],
     location: String,
@@ -11,5 +11,4 @@ const jobListingSchema = new mongoose.Schema({
     // Additional fields as needed
 });
 
-jobListingSchema.index({ title: 1, company: 1 });
 module.exports = mongoose.model('JobListing', jobListingSchema);

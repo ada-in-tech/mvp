@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const communityGroupSchema = new mongoose.Schema({
-    name: { type: String, required: true, index: true },
+    name: { type: String, required: true },
     description: String,
     focusArea: String,
     website: String,
@@ -11,5 +11,4 @@ const communityGroupSchema = new mongoose.Schema({
     // Additional fields as needed
 });
 
-communityGroupSchema.index({ name: 1 });
 module.exports = mongoose.model('CommunityGroup', communityGroupSchema);

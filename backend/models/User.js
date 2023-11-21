@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: { type: String, required: true, index: true },
-    email: { type: String, required: true, unique: true, index: true },
+    name: { type: String, required: true, },
+    email: { type: String, required: true, unique: true, },
     password: { type: String, required: true },
-    role: { type: String, enum: ['newcomer', 'professional', 'admin', 'company', 'community'], required: true, index: true },
+    role: { type: String, enum: ['newcomer', 'professional', 'admin', 'company', 'community'], required: true, },
     bio: String,
     skills: [String],
     interests: [String],
@@ -15,5 +15,4 @@ const userSchema = new mongoose.Schema({
     // Add other fields as needed
 });
 
-userSchema.index({ name: 1, email: 1, role: 1 });
 module.exports = mongoose.model('User', userSchema);
