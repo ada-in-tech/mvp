@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { detailedCourses } from '../mockData';
-import '../styles/card.css'; // Import existing CSS
+import '../styles/card.css';
 
 const DetailedCoursePage = () => {
     const { courseId } = useParams();
-    const course = detailedCourses.find(c => c.id.toString() === courseId);
+    const [course, setCourse] = useState(null);
+
+    useEffect(() => {
+        const fetchCourse = async () => {
+            try {
+                const response = await axios.get(`/api/courses/${courseId}`);
+                setCourse(response.data);
+            } catch (error) {
+                console.error('Error fetching course details:', error.message);
+            }
+        };
+
+        fetchCourse();
+    }, [courseId]);
 
     if (!course) return <div className="card">Course not found</div>;
 

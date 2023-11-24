@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import FeatureCard from '../components/cards/FeatureCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
 import NewsCard from '../components/cards/NewsCard';
 
-
 const HomePage = () => {
+    const [latestNews, setLatestNews] = useState([]);
+
+    useEffect(() => {
+        const fetchLatestNews = async () => {
+            try {
+                const response = await axios.get('/api/news');
+                setLatestNews(response.data);
+            } catch (error) {
+                console.error('Error fetching latest news:', error.message);
+                // Optionally, handle error (e.g., showing an error message)
+            }
+        };
+
+        fetchLatestNews();
+    }, []);
+
     return (
         <div className="flex flex-col min-h-screen">
-
             {/* Hero Section */}
             <section className="text-center bg-blue-600 text-white p-20">
                 <h1 className="text-5xl font-bold mb-6">Empower Your Tech Journey</h1>
@@ -62,10 +77,13 @@ const HomePage = () => {
             <section className="bg-gray-100 py-20 text-center">
                 <h2 className="text-4xl font-bold mb-6">Latest News</h2>
                 <div className="container mx-auto grid md:grid-cols-3 gap-12">
-                    <NewsCard title="Tech Conference 2023" description="Join us at the annual Tech Conference to learn about the latest trends." />
-                    <NewsCard title="New Course Releases" description="We've added new courses in AI, machine learning, and more." />
-                    <NewsCard title="Community Highlights" description="Read about the achievements of our community members." />
-                    {/* Add more news as needed */}
+                    {latestNews.map(newsItem => (
+                        <NewsCard
+                            key={newsItem.id}
+                            title={newsItem.title}
+                            description={newsItem.description}
+                        />
+                    ))}
                 </div>
             </section>
         </div>

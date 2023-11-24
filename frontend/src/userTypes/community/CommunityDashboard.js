@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Card from '../../components/cards/Card';
 import CommunityFeed from '../../components/common/CommunityFeed';
-import { events, resources, collaborations, communityPosts, groupProfile } from '../../mockData'; // Mock data
+import './communityDashboard.css';
 
 const CommunityDashboard = () => {
+    const [events, setEvents] = useState([]);
+    const [resources, setResources] = useState([]);
+    const [collaborations, setCollaborations] = useState([]);
+    const [communityPosts, setCommunityPosts] = useState([]);
+    const [groupProfile, setGroupProfile] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const eventsResponse = await axios.get('/api/events');
+                setEvents(eventsResponse.data);
+                const resourcesResponse = await axios.get('/api/resources');
+                setResources(resourcesResponse.data);
+                // Fetch other data similarly
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="dashboard">
             <section className="events">
@@ -14,28 +36,24 @@ const CommunityDashboard = () => {
                     ))}
                 </div>
             </section>
-
             <section className="resources">
                 <h2 className="text-2xl font-semibold mb-4">Resources</h2>
                 {resources.map(resource => (
                     <Card key={resource.id} item={resource} />
                 ))}
             </section>
-
             <section className="collaborations">
                 <h2 className="text-2xl font-semibold mb-4">Collaboration Opportunities</h2>
                 {collaborations.map(collaboration => (
                     <Card key={collaboration.id} item={collaboration} />
                 ))}
             </section>
-
             <section className="community-posts">
                 <h2 className="text-2xl font-semibold mb-4">Community Insights</h2>
                 <CommunityFeed feeds={communityPosts} />
             </section>
-
             <section className="group-profile">
-                <Card item={groupProfile} />
+                {groupProfile && <Card item={groupProfile} />}
             </section>
         </div>
     );

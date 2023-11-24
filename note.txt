@@ -1,0 +1,4 @@
+find . -type d \( -name node_modules -prune \) -o -type f -print  // find all files except node_modules
+
+
+find . -type f -exec echo -e "\n\nFILE: {}\n" \; -exec cat {} \; // find all files and print them

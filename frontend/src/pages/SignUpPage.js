@@ -4,6 +4,7 @@ import InputField from '../components/form/InputField';
 import SelectField from '../components/form/SelectField';
 import Button from '../components/common/Button';
 import '../styles/auth.css';
+import { registerUser } from '../services/userService'; // Adjust the import path as needed
 
 const SignUpPage = () => {
     const [formData, setFormData] = useState({
@@ -23,16 +24,21 @@ const SignUpPage = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Add logic to handle form submission
-        navigate('/verify-email'); // Redirect to email verification page
+        try {
+            const data = await registerUser(formData);
+            // Handle registration success, navigate to email verification page
+            navigate('/verify-email');
+        } catch (error) {
+            console.error('Registration error:', error.message);
+            // Optionally, show error to the user
+        }
     };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
 
     return (
         <div className="auth-container">
@@ -74,7 +80,7 @@ const SignUpPage = () => {
                 />
                 <Button type="submit">Register</Button>
                 <p>
-                    Already have an account? <Link to="/login" style={{ color: '#0077b6' }}>Login</Link> {/* Adjust the color as needed */}
+                    Already have an account? <Link to="/login" style={{ color: '#0077b6' }}>Login</Link>
                 </p>
             </form>
         </div>

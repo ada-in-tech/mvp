@@ -1,31 +1,40 @@
-import React, { useState } from 'react';
-import CourseCard from '../components/cards/CourseCard'; // Adjust path as needed
-import Filter from '../components/common/Filter'; // Component for filtering
-import { courses } from '../mockData'; // Replace with your data fetching logic
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import CourseCard from '../components/cards/CourseCard';
+import Filter from '../components/common/Filter';
+import '../styles/components.css';
 
 const CoursePage = () => {
-    // Logic for handling filters and state
+    const [courses, setCourses] = useState([]);
     const [filterValue, setFilterValue] = useState('');
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const response = await axios.get('/api/courses');
+                setCourses(response.data);
+            } catch (error) {
+                console.error('Error fetching courses:', error.message);
+            }
+        };
+
+        fetchCourses();
+    }, []);
 
     const handleFilterChange = (value) => {
         setFilterValue(value);
     };
 
-    const filteredCourses = courses.filter(
-        workshop => workshop.title.toLowerCase().includes(filterValue.toLowerCase())
+    const filteredCourses = courses.filter(course =>
+        course.title.toLowerCase().includes(filterValue.toLowerCase())
     );
 
     return (
-        <div>
+        <div className="course-page">
             <h1>Courses</h1>
-            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options */]} />
-            <div>
-                {filteredCourses.map(workshop => (
-                    <CourseCard key={workshop.id} {...workshop} />
-                ))}
-            </div>
+            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {courses.map(course => (
+                {filteredCourses.map(course => (
                     <CourseCard key={course.id} course={course} />
                 ))}
             </div>

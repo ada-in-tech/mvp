@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Card from '../../components/cards/Card';
 import CommunityFeed from '../../components/common/CommunityFeed';
-import { communityFeeds, currentMentees, potentialMentees, advancedWorkshops, submittedCourses } from '../../mockData';
+import './professionalDashboard.css';
 
 const ProfessionalDashboard = () => {
+    const [currentMentees, setCurrentMentees] = useState([]);
+    const [potentialMentees, setPotentialMentees] = useState([]);
+    const [advancedWorkshops, setAdvancedWorkshops] = useState([]);
+    const [submittedCourses, setSubmittedCourses] = useState([]);
+    const [communityFeeds, setCommunityFeeds] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const menteesResponse = await axios.get('/api/mentees');
+                setCurrentMentees(menteesResponse.data.current);
+                setPotentialMentees(menteesResponse.data.potential);
+                // Fetch advanced workshops, submitted courses, and community feeds similarly
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="dashboard">
-            {/* Current Mentees Section */}
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Current Mentees</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -15,8 +35,6 @@ const ProfessionalDashboard = () => {
                     ))}
                 </div>
             </section>
-
-            {/* Potential Mentees Section */}
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Mentor Connections</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -25,8 +43,6 @@ const ProfessionalDashboard = () => {
                     ))}
                 </div>
             </section>
-
-            {/* Advanced Workshops Section */}
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Advanced Workshops</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -35,8 +51,6 @@ const ProfessionalDashboard = () => {
                     ))}
                 </div>
             </section>
-
-            {/* Submitted Courses Section */}
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Your Submitted Courses</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -45,8 +59,6 @@ const ProfessionalDashboard = () => {
                     ))}
                 </div>
             </section>
-
-            {/* Community Insights Section */}
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Community Insights</h2>
                 <CommunityFeed feeds={communityFeeds} />

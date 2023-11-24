@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
-import Card from '../components/cards/Card'; // Adjust path as needed
-import Filter from '../components/common/Filter'; // Component for filtering
-import { newcomers } from '../mockData'; // Replace with your data fetching logic
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Card from '../components/cards/Card';
+import Filter from '../components/common/Filter';
+import '../styles/components.css';
 
 const NewcomerPage = () => {
+    const [newcomers, setNewcomers] = useState([]);
     const [filterValue, setFilterValue] = useState('');
+
+    useEffect(() => {
+        const fetchNewcomers = async () => {
+            try {
+                const response = await axios.get('/api/newcomers');
+                setNewcomers(response.data);
+            } catch (error) {
+                console.error('Error fetching newcomers:', error.message);
+                // Optionally, handle error (e.g., showing an error message)
+            }
+        };
+
+        fetchNewcomers();
+    }, []);
 
     const handleFilterChange = (value) => {
         setFilterValue(value);
@@ -17,7 +33,7 @@ const NewcomerPage = () => {
     return (
         <div className="newcomer-page">
             <h1>Newcomers</h1>
-            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options */]} />
+            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredNewcomers.map(newcomer => (
                     <Card key={newcomer.id} item={newcomer} className="newcomer-card" />

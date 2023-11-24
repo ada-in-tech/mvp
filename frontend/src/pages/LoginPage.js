@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import InputField from '../components/form/InputField';
 import Button from '../components/common/Button';
 import '../styles/auth.css';
+import { loginUser } from '../services/userService'; // Adjust the import path as needed
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
@@ -10,9 +11,18 @@ const LoginPage = () => {
         password: '',
     });
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Implement your login logic here
+        try {
+            const data = await loginUser(formData);
+            // Handle login success, store token, navigate to home or dashboard
+            navigate('/home'); // Adjust the redirect route as needed
+        } catch (error) {
+            console.error('Login error:', error.message);
+            // Optionally, show error to the user
+        }
     };
 
     const handleChange = (e) => {
@@ -38,7 +48,7 @@ const LoginPage = () => {
                 />
                 <Button type="submit">Login</Button>
                 <p>
-                    Don't have an account? <Link to="/signup" style={{ color: '#0077b6' }}>Sign Up</Link> {/* Adjust the color as needed */}
+                    Don't have an account? <Link to="/signup" style={{ color: '#0077b6' }}>Sign Up</Link>
                 </p>
             </form>
         </div>

@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Card from '../components/cards/Card';
-import { companies } from '../mockData';
+import '../styles/components.css';
 
 const CompanyPage = () => {
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        const fetchCompanies = async () => {
+            try {
+                const response = await axios.get('/api/companies');
+                setCompanies(response.data);
+            } catch (error) {
+                console.error('Error fetching companies:', error.message);
+            }
+        };
+
+        fetchCompanies();
+    }, []);
+
     return (
         <div className="company-page">
             <h1>Companies</h1>

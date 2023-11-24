@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { detailedWorkshops } from '../mockData';
-import '../styles/card.css'; // Import existing CSS
+import '../styles/card.css';
 
 const DetailedWorkshopPage = () => {
     const { workshopId } = useParams();
-    const workshop = detailedWorkshops.find(w => w.id.toString() === workshopId);
+    const [workshop, setWorkshop] = useState(null);
+
+    useEffect(() => {
+        const fetchWorkshop = async () => {
+            try {
+                const response = await axios.get(`/api/workshops/${workshopId}`);
+                setWorkshop(response.data);
+            } catch (error) {
+                console.error('Error fetching workshop details:', error.message);
+            }
+        };
+
+        fetchWorkshop();
+    }, [workshopId]);
 
     if (!workshop) return <div className="card">Workshop not found</div>;
 
