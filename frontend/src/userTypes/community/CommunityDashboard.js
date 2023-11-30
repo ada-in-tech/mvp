@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../../components/cards/Card';
 import CommunityFeed from '../../components/common/CommunityFeed';
-import './communityDashboard.css';
+import '../../styles/components.css';
 
 const CommunityDashboard = () => {
     const [events, setEvents] = useState([]);

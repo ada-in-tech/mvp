@@ -9,6 +9,7 @@ const resourceSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
     workshop: { type: mongoose.Schema.Types.ObjectId, ref: 'Workshop' },
+    image: String,
     // Additional fields as needed
 });
 

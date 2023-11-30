@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useUser } from '../../contexts/UserContext';
 
-const NavigationBar = ({ userType }) => {
+const NavigationBar = () => {
+    const { userType } = useUser();
+    console.log("Current User Type:", userType);
 
     return (
         <ul className="navigation">

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Card from '../../components/cards/Card';
 import CompanyProfileCard from '../../components/cards/CompanyProfileCard';
 import CommunityFeed from '../../components/common/CommunityFeed';
-import './companyDashboard.css';
+import '../../styles/components.css';
 
 const CompanyDashboard = () => {
     const [jobPostings, setJobPostings] = useState([]);
@@ -11,6 +11,7 @@ const CompanyDashboard = () => {
     const [collaborationOpportunities, setCollaborationOpportunities] = useState([]);
     const [companyEvents, setCompanyEvents] = useState([]);
     const [companyProfile, setCompanyProfile] = useState(null);
+    const [communityPosts, setCommunityPosts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,7 +60,7 @@ const CompanyDashboard = () => {
             </section>
             <section className="community-feed">
                 <h2 className="text-2xl font-bold mb-4">Community Feed</h2>
-                <CommunityFeed feeds={/* Fetch community feeds data from API */} />
+                <CommunityFeed feeds={communityPosts} />
             </section>
         </div>
     );

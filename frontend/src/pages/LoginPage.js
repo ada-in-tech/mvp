@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import InputField from '../components/form/InputField';
 import Button from '../components/common/Button';
 import '../styles/auth.css';
-import { loginUser } from '../services/userService'; // Adjust the import path as needed
+import { loginUser } from '../services/userService';
+import { useUser } from '../contexts/UserContext';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
@@ -11,19 +12,21 @@ const LoginPage = () => {
         password: '',
     });
 
+    const { login } = useUser();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const data = await loginUser(formData);
-            // Handle login success, store token, navigate to home or dashboard
-            navigate('/home'); // Adjust the redirect route as needed
+            console.log("Login response data:", data); // Check the response data
+            login(data); // Set user data in context
+            navigate(`/${data.userRole}-dashboard`);
         } catch (error) {
             console.error('Login error:', error.message);
-            // Optionally, show error to the user
         }
     };
+
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });

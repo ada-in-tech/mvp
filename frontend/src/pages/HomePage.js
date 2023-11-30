@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import FeatureCard from '../components/cards/FeatureCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
 import NewsCard from '../components/cards/NewsCard';
@@ -27,9 +28,11 @@ const HomePage = () => {
             <section className="text-center bg-blue-600 text-white p-20">
                 <h1 className="text-5xl font-bold mb-6">Empower Your Tech Journey</h1>
                 <p className="text-xl mb-8">Join a community dedicated to boosting women's presence in tech.</p>
-                <button className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
-                    Get Started
-                </button>
+                <Link to="/signup">
+                    <button className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
+                        Get Started
+                    </button>
+                </Link>
             </section>
 
             {/* Features Section */}
@@ -68,9 +71,11 @@ const HomePage = () => {
             <section className="bg-blue-600 text-white text-center py-20">
                 <h2 className="text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
                 <p className="text-xl mb-8">Sign up today and take the first step towards transforming your career.</p>
-                <button className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
-                    Sign Up Now
-                </button>
+                <Link to="/signup">
+                    <button className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
+                        Sign Up Now
+                    </button>
+                </Link>
             </section>
 
             {/* Latest News Section */}

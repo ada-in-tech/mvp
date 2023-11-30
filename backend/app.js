@@ -1,6 +1,7 @@
 const express = require('express');
 const errorHandler = require('./middleware/errorHandler');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const workshopRoutes = require('./routes/workshopRoutes');
@@ -21,6 +22,9 @@ mongoose.connect(process.env.DB_URI, {
     useUnifiedTopology: true
 }).then(() => console.log("Connected to MongoDB"))
     .catch(err => console.error("Could not connect to MongoDB", err));
+
+// Enable CORS
+app.use(cors());
 
 // Middleware for JSON body parsing
 app.use(express.json());

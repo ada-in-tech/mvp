@@ -7,6 +7,7 @@ const workshopSchema = new mongoose.Schema({
     participants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     date: Date,
     location: String,
+    image: String,
     // Additional fields as needed
 });
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../../components/cards/Card';
 import CommunityFeed from '../../components/common/CommunityFeed';
-import './newcomerDashboard.css';
+import '../../styles/components.css';
 
 const NewcomerDashboard = () => {
     const [courses, setCourses] = useState([]);

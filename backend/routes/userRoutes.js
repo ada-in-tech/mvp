@@ -8,7 +8,10 @@ const router = express.Router();
 router.post('/', userValidationRules(), validate, userController.createUser);
 
 // Registration is open for all
-router.post('/', userController.createUser);
+router.post('/register', userController.register);
+
+// Login route
+router.post('/login', userController.login);
 
 // Only admins can view all users or delete a user
 router.get('/', requireAuth, checkRole('admin'), userController.getAllUsers);

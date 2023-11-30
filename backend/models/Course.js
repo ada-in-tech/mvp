@@ -9,6 +9,7 @@ const courseSchema = new mongoose.Schema({
     endDate: Date,
     level: { type: String, enum: ['Beginner', 'Intermediate', 'Advanced'], default: 'Beginner', },
     category: { String, },
+    image: String,
     // Additional fields as needed
 });
 

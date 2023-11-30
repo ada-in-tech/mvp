@@ -8,11 +8,11 @@ import { registerUser } from '../services/userService'; // Adjust the import pat
 
 const SignUpPage = () => {
     const [formData, setFormData] = useState({
-        fullName: '',
+        name: '',
         email: '',
         password: '',
         confirmPassword: '',
-        userRole: '',
+        role: 'newcomer',
     });
 
     const userRoles = [
@@ -26,8 +26,10 @@ const SignUpPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const { confirmPassword, ...userData } = formData;
+        console.log("Sending userData:", userData);
         try {
-            const data = await registerUser(formData);
+            await registerUser(userData);
             // Handle registration success, navigate to email verification page
             navigate('/verify-email');
         } catch (error) {
@@ -38,6 +40,7 @@ const SignUpPage = () => {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        console.log("Updated formData:", formData);
     };
 
     return (
@@ -46,8 +49,8 @@ const SignUpPage = () => {
                 <InputField
                     label="Full Name or Company Name"
                     type="text"
-                    name="fullName"
-                    value={formData.fullName}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                 />
                 <InputField
@@ -73,8 +76,8 @@ const SignUpPage = () => {
                 />
                 <SelectField
                     label="I am a"
-                    name="userRole"
-                    value={formData.userRole}
+                    name="role"
+                    value={formData.role}
                     onChange={handleChange}
                     options={userRoles}
                 />

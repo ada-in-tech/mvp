@@ -3,6 +3,8 @@ import axios from 'axios';
 import Table from '../../components/common/Table';
 import Chart from '../../components/common/Chart';
 import './adminDashboard.css';
+import '../../styles/components.css';
+import Card from '../../components/cards/Card';
 
 const AdminDashboard = () => {
     const [users, setUsers] = useState([]);
