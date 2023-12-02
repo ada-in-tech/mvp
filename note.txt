@@ -2,3 +2,240 @@ find . -type d \( -name node_modules -prune \) -o -type f -print  // find all fi
 
 
 find . -type f -exec echo -e "\n\nFILE: {}\n" \; -exec cat {} \; // find all files and print them
+
+
+What do I need to give you to get the full markdowns with all the important details and I don't need to add anything?
+
+I have attached my srs document and this is my platform:
+./.gitignore
+./backend/.env
+./backend/.gitignore
+./backend/addData.js
+./backend/app.js
+./backend/controllers/communityGroupController.js
+./backend/controllers/companyController.js
+./backend/controllers/courseController.js
+./backend/controllers/feedbackController.js
+./backend/controllers/jobListingController.js
+./backend/controllers/newcomerController.js
+./backend/controllers/professionalController.js
+./backend/controllers/reportController.js
+./backend/controllers/resourceController.js
+./backend/controllers/userController.js
+./backend/controllers/workshopController.js
+./backend/data.json
+./backend/database.js
+./backend/middleware/auth.js
+./backend/middleware/checkRole.js
+./backend/middleware/errorHandler.js
+./backend/middleware/requireAuth.js
+./backend/middleware/validate.js
+./backend/models/CommunityGroup.js
+./backend/models/Company.js
+./backend/models/Course.js
+./backend/models/Feedback.js
+./backend/models/JobListing.js
+./backend/models/Newcomer.js
+./backend/models/Professional.js
+./backend/models/Report.js
+./backend/models/Resource.js
+./backend/models/User.js
+./backend/models/Workshop.js
+./backend/package-lock.json
+./backend/package.json
+./backend/README.md
+./backend/routes/communityGroupRoutes.js
+./backend/routes/companyRoutes.js
+./backend/routes/courseRoutes.js
+./backend/routes/feedbackRoutes.js
+./backend/routes/jobListingRoutes.js
+./backend/routes/newcomerRoutes.js
+./backend/routes/professionalRoutes.js
+./backend/routes/reportRoutes.js
+./backend/routes/resourceRoutes.js
+./backend/routes/userRoutes.js
+./backend/routes/workshopRoutes.js
+./backend/seed.js
+./backend/validationRules/communityGroupValidation.js
+./backend/validationRules/companyValidation.js
+./backend/validationRules/courseValidation.js
+./backend/validationRules/feedbackValidation.js
+./backend/validationRules/jobListingValidation.js
+./backend/validationRules/newcomerValidation.js
+./backend/validationRules/professionalValidation.js
+./backend/validationRules/reportValidation.js
+./backend/validationRules/resourceValidation.js
+./backend/validationRules/userValidation.js
+./backend/validationRules/workshopValidation.js
+./frontend/.env
+./frontend/.gitignore
+./frontend/package-lock.json
+./frontend/package.json
+./frontend/postcss.config.js
+./frontend/public/favicon.ico
+./frontend/public/index.html
+./frontend/public/logo192.png
+./frontend/public/logo512.png
+./frontend/public/manifest.json
+./frontend/public/robots.txt
+./frontend/README.md
+./frontend/src/App.css
+./frontend/src/App.js
+./frontend/src/App.test.js
+./frontend/src/components/cards/Card.js
+./frontend/src/components/cards/CompanyProfileCard.js
+./frontend/src/components/cards/CourseCard.js
+./frontend/src/components/cards/EventCard.js
+./frontend/src/components/cards/FeatureCard.js
+./frontend/src/components/cards/JobCard.js
+./frontend/src/components/cards/MentorCard.js
+./frontend/src/components/cards/NewsCard.js
+./frontend/src/components/cards/TestimonialCard.js
+./frontend/src/components/cards/WorkshopCard.js
+./frontend/src/components/common/Avatar.js
+./frontend/src/components/common/Button.js
+./frontend/src/components/common/Chart.js
+./frontend/src/components/common/CommunityFeed.js
+./frontend/src/components/common/Filter.js
+./frontend/src/components/common/Footer.js
+./frontend/src/components/common/Header.js
+./frontend/src/components/common/Navigation.js
+./frontend/src/components/common/Table.js
+./frontend/src/components/form/CheckboxField.js
+./frontend/src/components/form/InputField.js
+./frontend/src/components/form/SelectField.js
+./frontend/src/components/lists/CourseList.js
+./frontend/src/components/lists/JobList.js
+./frontend/src/components/lists/MentorList.js
+./frontend/src/contexts/UserContext.js
+./frontend/src/index.css
+./frontend/src/index.js
+./frontend/src/mockData.js
+./frontend/src/pages/CampaignCreationPage.js
+./frontend/src/pages/CollaborationPage.js
+./frontend/src/pages/CommunityPage.js
+./frontend/src/pages/CompanyPage.js
+./frontend/src/pages/ContentModerationPage.js
+./frontend/src/pages/CourseCreationPage.js
+./frontend/src/pages/CoursePage.js
+./frontend/src/pages/DetailedCoursePage.js
+./frontend/src/pages/DetailedWorkshopPage.js
+./frontend/src/pages/EmailVerificationPage.js
+./frontend/src/pages/FeedbackPage.js
+./frontend/src/pages/HomePage.js
+./frontend/src/pages/JobListingPage.js
+./frontend/src/pages/JobPostingPage.js
+./frontend/src/pages/LoginPage.js
+./frontend/src/pages/MentorPage.js
+./frontend/src/pages/NewcomerPage.js
+./frontend/src/pages/ProfilePage.js
+./frontend/src/pages/ReportIncidentPage.js
+./frontend/src/pages/ReportsFeedbackPage.js
+./frontend/src/pages/ResourceCreationPage.js
+./frontend/src/pages/ResourcePage.js
+./frontend/src/pages/SettingsPage.js
+./frontend/src/pages/SignUpPage.js
+./frontend/src/pages/WorkshopPage.js
+./frontend/src/reportWebVitals.js
+./frontend/src/services/api.js
+./frontend/src/services/userService.js
+./frontend/src/setupTests.js
+./frontend/src/store/index.js
+./frontend/src/styles/auth.css
+./frontend/src/styles/card.css
+./frontend/src/styles/components.css
+./frontend/src/styles/global.css
+./frontend/src/styles/theme.css
+./frontend/src/userTypes/admin/adminDashboard.css
+./frontend/src/userTypes/admin/AdminDashboard.js
+./frontend/src/userTypes/community/CommunityDashboard.js
+./frontend/src/userTypes/company/CompanyDashboard.js
+./frontend/src/userTypes/newcomer/NewcomerDashboard.js
+./frontend/src/userTypes/professional/ProfessionalDashboard.js
+./frontend/src/utils/auth.js
+./frontend/src/utils/helper.js
+./frontend/stylelint.config.js
+./frontend/tailwind.config.js
+./note.txt
+./README.md
+
+Backend package.json:
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+
+Frontend package.json:
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "formik": "^2.4.5",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.19.0",
+    "react-scripts": "5.0.1",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.5",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../services/api';
 import Card from '../components/cards/Card';
 import '../styles/components.css';
 
@@ -13,6 +13,7 @@ const CommunityPage = () => {
                 setCommunityGroups(response.data);
             } catch (error) {
                 console.error('Error fetching community groups:', error.message);
+                console.log(error.response);
             }
         };
 

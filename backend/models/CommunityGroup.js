@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const communityGroupSchema = new mongoose.Schema({
-    name: { type: String, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     description: String,
     focusArea: String,
     website: String,

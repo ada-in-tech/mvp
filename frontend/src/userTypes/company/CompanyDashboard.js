@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../services/api';
 import Card from '../../components/cards/Card';
 import CompanyProfileCard from '../../components/cards/CompanyProfileCard';
 import CommunityFeed from '../../components/common/CommunityFeed';

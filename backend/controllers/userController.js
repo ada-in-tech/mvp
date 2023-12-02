@@ -1,12 +1,16 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Newcomer = require('../models/Newcomer');
+const Professional = require('../models/Professional');
+const CommunityGroup = require('../models/CommunityGroup');
+const Company = require('../models/Company');
 
 exports.register = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        if (!email || !password) {
-            return res.status(400).json({ message: "Email and password are required" });
+        const { email, password, role } = req.body;
+        if (!email || !password || !role) {
+            return res.status(400).json({ message: "Email, password, and role are required" });
         }
 
         // Check if user already exists
@@ -20,6 +24,33 @@ exports.register = async (req, res) => {
 
         // Create user
         const user = await User.create({ ...req.body, password: hashedPassword });
+
+        // Handle role-specific record creation
+        switch (role) {
+            case 'newcomer':
+                // Assuming you want to collect specific data for a newcomer during registration
+                await Newcomer.create({ user: user._id, /* additional newcomer data */ });
+                break;
+            case 'professional':
+                // Assuming specific data for professionals
+                await Professional.create({ user: user._id, /* additional professional data */ });
+                break;
+            case 'community':
+                // For community groups
+                await CommunityGroup.create({ user: user._id, /* additional community group data */ });
+                break;
+            case 'company':
+                // For companies
+                await Company.create({ user: user._id, /* additional company data */ });
+                break;
+                // case 'admin':
+                // Handle admin creation if needed
+                // await Admin.create({ user: user._id, /* additional admin data */ });
+                break;
+            default:
+                // Optionally handle unknown roles
+                throw new Error('Invalid user role');
+        }
 
         // Create token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });

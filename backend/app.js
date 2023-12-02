@@ -11,6 +11,8 @@ const communityGroupRoutes = require('./routes/communityGroupRoutes');
 const resourceRoutes = require('./routes/resourceRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 const reportRoutes = require('./routes/reportRoutes');
+const newcomerRoutes = require('./routes/newcomerRoutes');
+const professionalRoutes = require('./routes/professionalRoutes');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -30,15 +32,17 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/users', userRoutes);
-app.use('/courses', courseRoutes);
-app.use('/workshops', workshopRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/courses', courseRoutes);
+app.use('/api/workshops', workshopRoutes);
 app.use('/joblistings', jobListingRoutes);
-app.use('/companies', companyRoutes);
-app.use('/communitygroups', communityGroupRoutes);
-app.use('/resources', resourceRoutes);
-app.use('/feedback', feedbackRoutes);
-app.use('/reports', reportRoutes);
+app.use('/api/companies', companyRoutes);
+app.use('/api/communitygroups', communityGroupRoutes);
+app.use('/api/resources', resourceRoutes);
+app.use('/api/feedback', feedbackRoutes);
+app.use('/api/reports', reportRoutes);
+app.use('/api/newcomers', newcomerRoutes);
+app.use('/api/professionals', professionalRoutes);
 
 app.use(errorHandler);
 

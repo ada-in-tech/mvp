@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../services/api';
 import Card from '../../components/cards/Card';
 import CommunityFeed from '../../components/common/CommunityFeed';
 import '../../styles/components.css';
 
 const ProfessionalDashboard = () => {
-    const [currentMentees, setCurrentMentees] = useState([]);
-    const [potentialMentees, setPotentialMentees] = useState([]);
+    const [newcomers, setNewcomers] = useState([]);
+    const [mentors, setMentors] = useState([]);
     const [advancedWorkshops, setAdvancedWorkshops] = useState([]);
     const [submittedCourses, setSubmittedCourses] = useState([]);
     const [communityFeeds, setCommunityFeeds] = useState([]);
@@ -14,9 +14,8 @@ const ProfessionalDashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const menteesResponse = await axios.get('/api/mentees');
-                setCurrentMentees(menteesResponse.data.current);
-                setPotentialMentees(menteesResponse.data.potential);
+                const newcomersResponse = await axios.get('/api/newcomers');
+                setNewcomers(newcomersResponse.data);
                 // Fetch advanced workshops, submitted courses, and community feeds similarly
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -30,16 +29,16 @@ const ProfessionalDashboard = () => {
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Current Mentees</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {currentMentees.map(mentee => (
-                        <Card key={mentee.id} item={mentee} className="mentor-card" />
+                    {newcomers.map(newcomer => (
+                        <Card key={newcomer._id} item={newcomer} className="mentor-card" />
                     ))}
                 </div>
             </section>
             <section className="my-6">
                 <h2 className="text-2xl font-semibold mb-4">Mentor Connections</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {potentialMentees.map(mentee => (
-                        <Card key={mentee.id} item={mentee} className="mentor-card" />
+                    {mentors.map(professional => (
+                        <Card key={professional.id} item={professional} className="mentor-card" />
                     ))}
                 </div>
             </section>

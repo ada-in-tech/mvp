@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../services/api';
 import Table from '../../components/common/Table';
 import Chart from '../../components/common/Chart';
 import './adminDashboard.css';

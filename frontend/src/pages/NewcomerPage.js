@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../services/api';
 import Card from '../components/cards/Card';
 import Filter from '../components/common/Filter';
 import '../styles/components.css';
@@ -13,6 +13,7 @@ const NewcomerPage = () => {
             try {
                 const response = await axios.get('/api/newcomers');
                 setNewcomers(response.data);
+                console.log(response.data)
             } catch (error) {
                 console.error('Error fetching newcomers:', error.message);
                 // Optionally, handle error (e.g., showing an error message)
@@ -26,8 +27,8 @@ const NewcomerPage = () => {
         setFilterValue(value);
     };
 
-    const filteredNewcomers = newcomers.filter(
-        newcomer => newcomer.name.toLowerCase().includes(filterValue.toLowerCase())
+    const filteredNewcomers = newcomers.filter(newcomer =>
+        newcomer.user && newcomer.user.toLowerCase().includes(filterValue.toLowerCase())
     );
 
     return (
@@ -36,7 +37,7 @@ const NewcomerPage = () => {
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredNewcomers.map(newcomer => (
-                    <Card key={newcomer.id} item={newcomer} className="newcomer-card" />
+                    <Card key={newcomer._id} item={newcomer} className="newcomer-card" />
                 ))}
             </div>
         </div>

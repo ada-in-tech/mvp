@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../components/common/Button';
-import axios from 'axios';
+import axios from '../services/api';
 import '../styles/auth.css';
 
 const EmailVerificationPage = () => {

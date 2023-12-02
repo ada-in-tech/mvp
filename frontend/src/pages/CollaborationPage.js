@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Card from '../components/cards/Card'; // Assuming existing Card component
+import axios from '../services/api';
+import Card from '../components/cards/Card';
 import '../styles/components.css';
 
 const CollaborationPage = () => {
